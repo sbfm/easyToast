@@ -4,13 +4,11 @@
 # owner   : Fumiya Shibamata
 # web     : https://github.com/sbfm/easyToast
 #
-# thanks
-#https://docs.microsoft.com/en-us/windows/win32/winmsg/window-classes
-#https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataw
-#https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-loadimagew
-#https://docs.python.org/ja/3/library/ctypes.html
-#https://python.keicode.com/advanced/ctypes-messagebox.php
-#
+# 
+# official Documents
+# https://docs.microsoft.com/en-us/windows/win32/winmsg/window-classes
+# https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataw
+# https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-loadimagew
 #
 #
 import os
@@ -28,13 +26,12 @@ def toast (title, message, tips = "tips", icon="") :
     
     icon : set .ico file
     """
-    # 構造体定義
     class GUID(Structure):
         _fields_ = [
-            ('Data1', DWORD),
-            ('Data2', WORD),
-            ('Data3', WORD),
-            ('Data4', BYTE * 8)
+            ("Data1", DWORD),
+            ("Data2", WORD),
+            ("Data3", WORD),
+            ("Data4", BYTE * 8)
         ]
     
     class NOTIFYICONDATAW(Structure):
@@ -78,14 +75,14 @@ def toast (title, message, tips = "tips", icon="") :
         infoflag = 0x00000000 # NO PARAMETER
     
     
-    mem_siza = sizeof(NOTIFYICONDATAW)
+    mem_size = sizeof(NOTIFYICONDATAW)
     notify_data = NOTIFYICONDATAW(
-            mem_siza, 0, os.getpid(), flags, 0, hicon, tips, 
+            mem_size, 0, os.getpid(), flags, 0, hicon, tips, 
             0, 0, message, 4, title, infoflag, GUID(), hicon
     )
     
-    Shell_NotifyIconW(0, notify_data)
-    Shell_NotifyIconW(4, notify_data)
+    Shell_NotifyIconW(0x00000000, notify_data)
+    Shell_NotifyIconW(0x00000002, notify_data)
     
 
 #toast(title="hogehoge",message="hogehoge")
