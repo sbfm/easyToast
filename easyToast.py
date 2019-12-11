@@ -2,7 +2,7 @@
 #
 # Licence : MIT Licence 
 # owner   : Fumiya Shibamata
-#
+# web     : https://github.com/sbfm/easyToast
 #
 # thanks
 #https://docs.microsoft.com/en-us/windows/win32/winmsg/window-classes
@@ -22,7 +22,7 @@ from ctypes.wintypes import (
     ) 
 
 
-def toast (title, message, tips = "tis", icon="") :
+def toast (title, message, tips = "tips", icon="") :
     """
     toast 
     
