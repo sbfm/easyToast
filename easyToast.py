@@ -36,21 +36,21 @@ def toast (title, message, tips = "tips", icon="") :
     
     class NOTIFYICONDATAW(Structure):
         _fields_ = [
-        ("cbSize", DWORD),
-        ("hWnd", HWND),
-        ("uID", UINT),
-        ("uFlags", UINT),
-        ("uCallbackMessage", UINT),
-        ("hIcon", HICON),
-        ("szTip", WCHAR * 128),
-        ("dwState", DWORD),
-        ("dwStateMask", DWORD),
-        ("szInfo", WCHAR * 256),
-        ("uVersion", UINT),
-        ("szInfoTitle", WCHAR * 64),
-        ("dwInfoFlags", DWORD),
-        ("guidItem", GUID),
-        ("hBalloonIcon", HICON),
+            ("cbSize", DWORD),
+            ("hWnd", HWND),
+            ("uID", UINT),
+            ("uFlags", UINT),
+            ("uCallbackMessage", UINT),
+            ("hIcon", HICON),
+            ("szTip", WCHAR * 128),
+            ("dwState", DWORD),
+            ("dwStateMask", DWORD),
+            ("szInfo", WCHAR * 256),
+            ("uVersion", UINT),
+            ("szInfoTitle", WCHAR * 64),
+            ("dwInfoFlags", DWORD),
+            ("guidItem", GUID),
+            ("hBalloonIcon", HICON),
         ]
     
     # Load WindowsAPI
